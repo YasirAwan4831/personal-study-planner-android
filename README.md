@@ -1,4 +1,7 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a1a2e,30:16213e,60:0f3460,85:533483,100:e94560&height=220&section=header&text=Personal%20Study%20Planner&fontSize=48&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Android%20Application%20%7C%20Portfolio%20%26%20Documentation%20Showcase&descAlignY=58&descSize=18&descColor=c9d1d9"/>
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a1a2e,30:16213e,60:0f3460,85:533483,100:e94560&height=220&section=header&text=Personal%20Study%20Planner&fontSize=48&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Android%20Application%20-%20Portfolio%20and%20Documentation%20Showcase&descAlignY=58&descSize=18&descColor=c9d1d9" />
+</p>
+
 
 <div align="center">
 
