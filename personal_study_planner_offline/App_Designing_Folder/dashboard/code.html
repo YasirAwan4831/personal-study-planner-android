@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StudyPlanner - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-variant": "#d5e3fc",
+                      "primary-fixed": "#dbe1ff",
+                      "surface-container-highest": "#d5e3fc",
+                      "surface-dim": "#ccdbf3",
+                      "secondary-container": "#82f5c1",
+                      "secondary-fixed": "#85f8c4",
+                      "surface": "#f8f9ff",
+                      "inverse-surface": "#233144",
+                      "on-tertiary-fixed": "#2f1500",
+                      "outline-variant": "#c3c6d7",
+                      "secondary-fixed-dim": "#68dba9",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#eaf1ff",
+                      "primary": "#004ac6",
+                      "on-tertiary": "#ffffff",
+                      "secondary": "#006c4a",
+                      "tertiary-container": "#a65900",
+                      "on-surface": "#0d1c2e",
+                      "primary-container": "#2563eb",
+                      "primary-fixed-dim": "#b4c5ff",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed-dim": "#ffb77d",
+                      "inverse-primary": "#b4c5ff",
+                      "on-primary": "#ffffff",
+                      "background": "#f8f9ff",
+                      "on-primary-fixed-variant": "#003ea8",
+                      "outline": "#737686",
+                      "surface-container-low": "#eff4ff",
+                      "on-primary-container": "#eeefff",
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed-variant": "#005137",
+                      "surface-container-high": "#dce9ff",
+                      "on-tertiary-fixed-variant": "#6e3900",
+                      "on-tertiary-container": "#ffede1",
+                      "on-secondary": "#ffffff",
+                      "surface-bright": "#f8f9ff",
+                      "on-background": "#0d1c2e",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed": "#00174b",
+                      "surface-container": "#e6eeff",
+                      "tertiary": "#824500",
+                      "on-error-container": "#93000a",
+                      "on-surface-variant": "#434655",
+                      "tertiary-fixed": "#ffdcc3",
+                      "on-secondary-fixed": "#002114",
+                      "on-secondary-container": "#00714e",
+                      "surface-tint": "#0053db"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "md": "16px",
+                      "sm": "8px",
+                      "xs": "4px",
+                      "lg": "24px",
+                      "gutter": "16px",
+                      "base": "8px",
+                      "xl": "32px",
+                      "margin-tablet": "32px"
+              },
+              "fontFamily": {
+                      "stats-number": ["Manrope"],
+                      "title-md": ["Manrope"],
+                      "headline-lg-mobile": ["Manrope"],
+                      "body-sm": ["Inter"],
+                      "headline-lg": ["Manrope"],
+                      "display-lg": ["Manrope"],
+                      "body-lg": ["Inter"],
+                      "label-caps": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                      "stats-number": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        /* Progress Circle Animation */
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.8s ease-in-out;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        
+        /* Subtle Grid Background for tactile feel */
+        .bg-tactile-grid {
+            background-image: linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* Material Symbols Outline Class */
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-lg min-h-screen pb-24 md:pb-0 md:pt-20 antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- Background Pattern -->
+<div class="fixed inset-0 bg-tactile-grid pointer-events-none z-[-1]"></div>
+<!-- TopAppBar (Web & Tablet) -->
+<header class="hidden md:flex justify-between items-center w-full px-margin-tablet py-4 bg-surface docked full-width top-0 z-40 fixed flat no shadows">
+<div class="flex items-center gap-sm cursor-pointer hover:opacity-80 active:scale-98 transition-all">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="font-title-md text-title-md font-bold text-primary">StudyPlanner</span>
+</div>
+<nav class="flex items-center gap-lg">
+<a class="font-title-md text-title-md text-primary font-semibold hover:opacity-80 transition-opacity" href="#">Dashboard</a>
+<a class="font-title-md text-title-md text-on-surface-variant hover:opacity-80 transition-opacity" href="#">Subjects</a>
+<a class="font-title-md text-title-md text-on-surface-variant hover:opacity-80 transition-opacity" href="#">Calendar</a>
+<a class="font-title-md text-title-md text-on-surface-variant hover:opacity-80 transition-opacity" href="#">Tasks</a>
+</nav>
+<div class="flex items-center gap-sm">
+<button class="p-2 rounded-full hover:bg-surface-variant transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">calendar_today</span>
+</button>
+</div>
+</header>
+<!-- TopAppBar (Mobile) -->
+<header class="md:hidden flex justify-between items-center w-full px-margin-mobile py-4 bg-surface sticky top-0 z-40">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="font-title-md text-title-md font-bold text-primary">StudyPlanner</span>
+</div>
+<button class="p-2 rounded-full hover:bg-surface-variant transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">calendar_today</span>
+</button>
+</header>
+<main class="max-w-5xl mx-auto px-margin-mobile md:px-margin-tablet py-lg">
+<!-- Header Section -->
+<section class="mb-lg animate-fade-in-up">
+<div class="flex justify-between items-end mb-xs">
+<div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface tracking-tight">Good morning, Alex</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-1">Thursday, October 26</p>
+</div>
+</div>
+</section>
+<!-- Bento Grid Layout for Main Content -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Overall Progress Card (Large Span) -->
+<div class="col-span-1 md:col-span-8 bg-surface-container-lowest rounded-xl p-md shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant/30 flex flex-col justify-between hover:shadow-[0px_8px_24px_rgba(0,0,0,0.08)] transition-all duration-300 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-fixed-dim/20 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none group-hover:bg-primary-fixed-dim/40 transition-colors duration-500"></div>
+<div class="flex justify-between items-start mb-md relative z-10">
+<div>
+<h2 class="font-title-md text-title-md text-on-surface">Today's Study Progress</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Keep up the good work!</p>
+</div>
+<!-- Local icon to reinforce offline nature -->
+<span class="material-symbols-outlined text-outline-variant" style="font-variation-settings: 'FILL' 1;" title="Local Data Only">save</span>
+</div>
+<div class="flex items-center gap-lg relative z-10">
+<!-- Progress Ring -->
+<div class="relative w-24 h-24 flex-shrink-0">
+<svg class="w-full h-full" viewbox="0 0 100 100">
+<!-- Background circle -->
+<circle class="text-surface-variant stroke-current" cx="50" cy="50" fill="transparent" r="40" stroke-width="8"></circle>
+<!-- Progress circle (65%) -->
+<circle class="text-secondary stroke-current progress-ring__circle" cx="50" cy="50" fill="transparent" r="40" stroke-dasharray="251.2" stroke-dashoffset="87.92" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-stats-number text-stats-number text-on-surface">65<span class="text-sm">%</span></span>
+</div>
+</div>
+<div class="flex-1 space-y-md">
+<button class="w-full h-12 bg-primary text-on-primary rounded-lg font-title-md text-title-md flex items-center justify-center gap-sm hover:bg-primary/90 active:bg-primary/100 transition-colors shadow-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">timer</span>
+                            Start Study Timer
+                        </button>
+</div>
+</div>
+</div>
+<!-- Daily Stats Vertical Stack (Small Span) -->
+<div class="col-span-1 md:col-span-4 flex flex-col gap-gutter">
+<!-- Tasks Card -->
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant/30 flex items-center gap-md hover:border-primary/50 transition-colors cursor-pointer group">
+<div class="w-12 h-12 rounded-full bg-primary-container/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">checklist</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">Tasks Completed</p>
+<p class="font-stats-number text-stats-number text-on-surface mt-xs">3 <span class="text-on-surface-variant text-lg">/ 5</span></p>
+</div>
+</div>
+<!-- Study Time Card -->
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant/30 flex items-center gap-md hover:border-primary/50 transition-colors cursor-pointer group">
+<div class="w-12 h-12 rounded-full bg-secondary-container/30 flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">Study Time</p>
+<p class="font-stats-number text-stats-number text-on-surface mt-xs">2<span class="text-sm font-normal text-on-surface-variant mr-1">h</span> 35<span class="text-sm font-normal text-on-surface-variant">m</span></p>
+</div>
+</div>
+<!-- Streak Card -->
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant/30 flex items-center gap-md hover:border-primary/50 transition-colors cursor-pointer group">
+<div class="w-12 h-12 rounded-full bg-tertiary-container/20 flex items-center justify-center text-tertiary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">Current Streak</p>
+<p class="font-stats-number text-stats-number text-on-surface mt-xs">7 <span class="text-on-surface-variant text-sm font-normal">days</span></p>
+</div>
+</div>
+</div>
+<!-- Bottom Row: Upcoming Tasks & Subjects -->
+<!-- Upcoming Tasks List -->
+<div class="col-span-1 md:col-span-6 flex flex-col gap-sm">
+<div class="flex justify-between items-center mb-xs px-2">
+<h3 class="font-title-md text-title-md text-on-surface">Upcoming Tasks</h3>
+<button class="text-primary font-label-caps text-label-caps uppercase hover:underline">View All</button>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant/30 overflow-hidden">
+<!-- Task Item 1 -->
+<div class="h-[72px] px-md flex items-center gap-md border-b border-outline-variant/20 hover:bg-surface-variant/30 transition-colors cursor-pointer relative overflow-hidden group">
+<div class="absolute inset-0 bg-primary/5 opacity-0 group-active:opacity-100 transition-opacity"></div>
+<div class="w-6 h-6 rounded border-2 border-outline-variant flex items-center justify-center group-hover:border-primary transition-colors"></div>
+<div class="flex-1">
+<p class="font-body-lg text-body-lg text-on-surface leading-tight">Review Calculus Ch. 4</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Due Today • Math</p>
+</div>
+<div class="bg-surface-container-low text-primary px-2 py-1 rounded font-label-caps text-label-caps">High Priority</div>
+</div>
+<!-- Task Item 2 -->
+<div class="h-[72px] px-md flex items-center gap-md hover:bg-surface-variant/30 transition-colors cursor-pointer relative overflow-hidden group">
+<div class="absolute inset-0 bg-primary/5 opacity-0 group-active:opacity-100 transition-opacity"></div>
+<div class="w-6 h-6 rounded border-2 border-outline-variant flex items-center justify-center group-hover:border-primary transition-colors"></div>
+<div class="flex-1">
+<p class="font-body-lg text-body-lg text-on-surface leading-tight">Physics Lab Report</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Due Tomorrow • Physics</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Subject Progress Cards -->
+<div class="col-span-1 md:col-span-6 flex flex-col gap-sm">
+<div class="flex justify-between items-center mb-xs px-2">
+<h3 class="font-title-md text-title-md text-on-surface">Subjects Focus</h3>
+</div>
+<div class="grid grid-cols-2 gap-gutter h-full pb-2 md:pb-0">
+<!-- Math Subject Card -->
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant/30 flex flex-col justify-between hover:shadow-md transition-shadow relative cursor-pointer">
+<div class="flex justify-between items-start mb-md">
+<div class="bg-primary-container/10 px-2 py-1 rounded text-primary font-label-caps text-label-caps">Math</div>
+<span class="material-symbols-outlined text-outline-variant text-sm">more_vert</span>
+</div>
+<div>
+<div class="flex justify-between items-end mb-1">
+<span class="font-stats-number text-stats-number text-on-surface">65%</span>
+</div>
+<!-- Linear Progress Bar -->
+<div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 65%;"></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 text-right">Mastery</p>
+</div>
+</div>
+<!-- Physics Subject Card -->
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant/30 flex flex-col justify-between hover:shadow-md transition-shadow relative cursor-pointer">
+<div class="flex justify-between items-start mb-md">
+<div class="bg-secondary-container/20 px-2 py-1 rounded text-secondary font-label-caps text-label-caps">Physics</div>
+<span class="material-symbols-outlined text-outline-variant text-sm">more_vert</span>
+</div>
+<div>
+<div class="flex justify-between items-end mb-1">
+<span class="font-stats-number text-stats-number text-on-surface">40%</span>
+</div>
+<!-- Linear Progress Bar -->
+<div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 40%;"></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 text-right">Mastery</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 shadow-[0px_-4px_12px_rgba(0,0,0,0.05)] bg-surface rounded-t-xl">
+<!-- Dashboard (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-body-sm text-body-sm font-semibold">Dashboard</span>
+</a>
+<!-- Subjects -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-body-sm text-body-sm">Subjects</span>
+</a>
+<!-- Calendar -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-body-sm text-body-sm">Calendar</span>
+</a>
+<!-- Tasks -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">checklist</span>
+<span class="font-body-sm text-body-sm">Tasks</span>
+</a>
+<!-- More -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">more_horiz</span>
+<span class="font-body-sm text-body-sm">More</span>
+</a>
+</nav>
+</body></html>

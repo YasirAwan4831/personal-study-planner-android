@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Subjects - StudyPlanner</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&amp;family=JetBrains+Mono:wght@600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-variant": "#d5e3fc",
+                      "primary-fixed": "#dbe1ff",
+                      "surface-container-highest": "#d5e3fc",
+                      "surface-dim": "#ccdbf3",
+                      "secondary-container": "#82f5c1",
+                      "secondary-fixed": "#85f8c4",
+                      "surface": "#f8f9ff",
+                      "inverse-surface": "#233144",
+                      "on-tertiary-fixed": "#2f1500",
+                      "outline-variant": "#c3c6d7",
+                      "secondary-fixed-dim": "#68dba9",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#eaf1ff",
+                      "primary": "#004ac6",
+                      "on-tertiary": "#ffffff",
+                      "secondary": "#006c4a",
+                      "tertiary-container": "#a65900",
+                      "on-surface": "#0d1c2e",
+                      "primary-container": "#2563eb",
+                      "primary-fixed-dim": "#b4c5ff",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed-dim": "#ffb77d",
+                      "inverse-primary": "#b4c5ff",
+                      "on-primary": "#ffffff",
+                      "background": "#f8f9ff",
+                      "on-primary-fixed-variant": "#003ea8",
+                      "outline": "#737686",
+                      "surface-container-low": "#eff4ff",
+                      "on-primary-container": "#eeefff",
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed-variant": "#005137",
+                      "surface-container-high": "#dce9ff",
+                      "on-tertiary-fixed-variant": "#6e3900",
+                      "on-tertiary-container": "#ffede1",
+                      "on-secondary": "#ffffff",
+                      "surface-bright": "#f8f9ff",
+                      "on-background": "#0d1c2e",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed": "#00174b",
+                      "surface-container": "#e6eeff",
+                      "tertiary": "#824500",
+                      "on-error-container": "#93000a",
+                      "on-surface-variant": "#434655",
+                      "tertiary-fixed": "#ffdcc3",
+                      "on-secondary-fixed": "#002114",
+                      "on-secondary-container": "#00714e",
+                      "surface-tint": "#0053db"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "md": "16px",
+                      "sm": "8px",
+                      "xs": "4px",
+                      "lg": "24px",
+                      "gutter": "16px",
+                      "base": "8px",
+                      "xl": "32px",
+                      "margin-tablet": "32px"
+              },
+              "fontFamily": {
+                      "stats-number": [
+                              "Manrope"
+                      ],
+                      "title-md": [
+                              "Manrope"
+                      ],
+                      "headline-lg-mobile": [
+                              "Manrope"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Manrope"
+                      ],
+                      "display-lg": [
+                              "Manrope"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "label-caps": [
+                              "JetBrains Mono"
+                      ]
+              },
+              "fontSize": {
+                      "stats-number": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "title-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background h-full font-body-sm overflow-x-hidden pt-20 pb-24 md:pb-8 md:pt-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface dark:bg-on-surface md:shadow-sm">
+<div class="flex justify-between items-center w-full px-margin-mobile py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<button class="md:hidden p-2 -ml-2 rounded-full hover:bg-surface-variant transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+</button>
+<div class="hidden md:flex gap-6">
+<a class="text-on-surface-variant hover:opacity-80 transition-all font-title-md text-title-md" href="#">Dashboard</a>
+<a class="text-primary font-semibold hover:opacity-80 transition-all font-title-md text-title-md active:scale-98" href="#">Subjects</a>
+<a class="text-on-surface-variant hover:opacity-80 transition-all font-title-md text-title-md" href="#">Calendar</a>
+<a class="text-on-surface-variant hover:opacity-80 transition-all font-title-md text-title-md" href="#">Tasks</a>
+</div>
+</div>
+<h1 class="font-title-md text-title-md font-bold text-primary dark:text-primary-fixed absolute left-1/2 -translate-x-1/2">
+                StudyPlanner
+            </h1>
+<div class="flex items-center">
+<button class="p-2 -mr-2 rounded-full hover:bg-surface-variant transition-colors text-primary dark:text-primary-fixed">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</header>
+<main class="w-full max-w-5xl mx-auto px-margin-mobile md:px-margin-tablet">
+<header class="mb-lg flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg">My Subjects</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-sm">Manage and track your academic progress.</p>
+</div>
+<button class="hidden md:flex items-center gap-2 bg-primary text-on-primary px-4 py-2 rounded-lg font-title-md text-title-md hover:bg-primary-container transition-colors shadow-sm active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                Add Subject
+            </button>
+</header>
+<!-- Subjects Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md md:gap-lg">
+<!-- Mathematics Card -->
+<article class="bg-surface-container-lowest rounded-xl p-md shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant/30 hover:border-primary/50 transition-colors group relative overflow-hidden">
+<div class="flex justify-between items-start mb-lg">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-variant flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="calculate">calculate</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md">Mathematics</h3>
+<span class="font-label-caps text-label-caps text-on-surface-variant inline-flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-outline-variant inline-block"></span> Local
+                            </span>
+</div>
+</div>
+<button class="p-2 -mr-2 rounded-full hover:bg-surface-variant transition-colors text-on-surface-variant opacity-0 group-hover:opacity-100 focus:opacity-100">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between items-end">
+<span class="font-stats-number text-stats-number text-primary">65%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mb-1">13/20 topics</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full transition-all duration-1000 ease-out" style="width: 65%;"></div>
+</div>
+</div>
+</article>
+<!-- Physics Card -->
+<article class="bg-surface-container-lowest rounded-xl p-md shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant/30 hover:border-primary/50 transition-colors group relative overflow-hidden">
+<div class="flex justify-between items-start mb-lg">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-lg bg-secondary-container/30 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="science">science</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md">Physics</h3>
+<span class="font-label-caps text-label-caps text-on-surface-variant inline-flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-outline-variant inline-block"></span> Local
+                            </span>
+</div>
+</div>
+<button class="p-2 -mr-2 rounded-full hover:bg-surface-variant transition-colors text-on-surface-variant opacity-0 group-hover:opacity-100 focus:opacity-100">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between items-end">
+<span class="font-stats-number text-stats-number text-secondary">40%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mb-1">8/20 topics</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full transition-all duration-1000 ease-out" style="width: 40%;"></div>
+</div>
+</div>
+</article>
+<!-- English Card -->
+<article class="bg-surface-container-lowest rounded-xl p-md shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant/30 hover:border-primary/50 transition-colors group relative overflow-hidden">
+<div class="flex justify-between items-start mb-lg">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-lg bg-tertiary-container/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="book">book</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md">English</h3>
+<span class="font-label-caps text-label-caps text-on-surface-variant inline-flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-outline-variant inline-block"></span> Local
+                            </span>
+</div>
+</div>
+<button class="p-2 -mr-2 rounded-full hover:bg-surface-variant transition-colors text-on-surface-variant opacity-0 group-hover:opacity-100 focus:opacity-100">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between items-end">
+<span class="font-stats-number text-stats-number text-tertiary">10%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mb-1">2/20 topics</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full transition-all duration-1000 ease-out" style="width: 10%;"></div>
+</div>
+</div>
+</article>
+<!-- Add New Empty State Card (Visible mostly on MD+ to fill grid, but good affordance everywhere) -->
+<button class="md:hidden w-full bg-surface-container-lowest rounded-xl p-md border-2 border-dashed border-outline-variant hover:border-primary hover:bg-surface-container-low transition-colors flex flex-col items-center justify-center min-h-[140px] gap-sm text-on-surface-variant hover:text-primary active:scale-[0.98]">
+<span class="material-symbols-outlined text-[32px]" data-icon="add_circle">add_circle</span>
+<span class="font-title-md text-title-md">Add New Subject</span>
+</button>
+</div>
+</main>
+<!-- Floating Action Button (Mobile) -->
+<button class="md:hidden fixed bottom-24 right-4 w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center z-40 active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 shadow-[0px_-4px_12px_rgba(0,0,0,0.05)] bg-surface dark:bg-on-surface rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-95 duration-200 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="dashboard">dashboard</span>
+<span class="font-body-sm text-body-sm text-[10px]">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="auto_stories" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+<span class="font-body-sm text-body-sm text-[10px] font-semibold">Subjects</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-95 duration-200 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="calendar_month">calendar_month</span>
+<span class="font-body-sm text-body-sm text-[10px]">Calendar</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-95 duration-200 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="checklist">checklist</span>
+<span class="font-body-sm text-body-sm text-[10px]">Tasks</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-95 duration-200 rounded-xl" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="more_horiz">more_horiz</span>
+<span class="font-body-sm text-body-sm text-[10px]">More</span>
+</a>
+</nav>
+</body></html>

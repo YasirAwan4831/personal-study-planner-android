@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings - StudyPlanner</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#d5e3fc",
+                    "primary-fixed": "#dbe1ff",
+                    "surface-container-highest": "#d5e3fc",
+                    "surface-dim": "#ccdbf3",
+                    "secondary-container": "#82f5c1",
+                    "secondary-fixed": "#85f8c4",
+                    "surface": "#f8f9ff",
+                    "inverse-surface": "#233144",
+                    "on-tertiary-fixed": "#2f1500",
+                    "outline-variant": "#c3c6d7",
+                    "secondary-fixed-dim": "#68dba9",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "primary": "#004ac6",
+                    "on-tertiary": "#ffffff",
+                    "secondary": "#006c4a",
+                    "tertiary-container": "#a65900",
+                    "on-surface": "#0d1c2e",
+                    "primary-container": "#2563eb",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#ffb77d",
+                    "inverse-primary": "#b4c5ff",
+                    "on-primary": "#ffffff",
+                    "background": "#f8f9ff",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "outline": "#737686",
+                    "surface-container-low": "#eff4ff",
+                    "on-primary-container": "#eeefff",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed-variant": "#005137",
+                    "surface-container-high": "#dce9ff",
+                    "on-tertiary-fixed-variant": "#6e3900",
+                    "on-tertiary-container": "#ffede1",
+                    "on-secondary": "#ffffff",
+                    "surface-bright": "#f8f9ff",
+                    "on-background": "#0d1c2e",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed": "#00174b",
+                    "surface-container": "#e6eeff",
+                    "tertiary": "#824500",
+                    "on-error-container": "#93000a",
+                    "on-surface-variant": "#434655",
+                    "tertiary-fixed": "#ffdcc3",
+                    "on-secondary-fixed": "#002114",
+                    "on-secondary-container": "#00714e",
+                    "surface-tint": "#0053db"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "md": "16px",
+                    "sm": "8px",
+                    "xs": "4px",
+                    "lg": "24px",
+                    "gutter": "16px",
+                    "base": "8px",
+                    "xl": "32px",
+                    "margin-tablet": "32px"
+            },
+            "fontFamily": {
+                    "stats-number": ["Manrope"],
+                    "title-md": ["Manrope"],
+                    "headline-lg-mobile": ["Manrope"],
+                    "body-sm": ["Inter"],
+                    "headline-lg": ["Manrope"],
+                    "display-lg": ["Manrope"],
+                    "body-lg": ["Inter"],
+                    "label-caps": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "stats-number": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #c3c6d7;
+            border-radius: 20px;
+        }
+        .ripple {
+            background-position: center;
+            transition: background 0.8s;
+        }
+        .ripple:hover {
+            background: #eaf1ff radial-gradient(circle, transparent 1%, #eaf1ff 1%) center/15000%;
+        }
+        .ripple:active {
+            background-color: #dce9ff;
+            background-size: 100%;
+            transition: background 0s;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background h-full overflow-hidden flex flex-col font-body-lg">
+<!-- TopAppBar -->
+<header class="docked full-width top-0 bg-surface dark:bg-on-surface flex justify-between items-center w-full px-margin-mobile py-4 shadow-[0px_-4px_12px_rgba(0,0,0,0.05)] z-40">
+<div class="flex items-center gap-md">
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors active:scale-95">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed" data-icon="menu_book">menu_book</span>
+</button>
+<h1 class="font-title-md text-title-md font-bold text-primary dark:text-primary-fixed">StudyPlanner</h1>
+</div>
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors active:scale-95">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed" data-icon="calendar_today">calendar_today</span>
+</button>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto px-margin-mobile md:px-margin-tablet py-lg pb-32">
+<div class="max-w-3xl mx-auto space-y-xl">
+<div class="mb-lg">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background">Settings</h2>
+</div>
+<!-- Appearance Section -->
+<section>
+<h3 class="font-label-caps text-label-caps text-primary uppercase mb-sm px-4">Appearance</h3>
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] overflow-hidden">
+<div class="flex items-center justify-between p-4 ripple cursor-pointer border-b border-outline-variant/30">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">dark_mode</span>
+<div>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold">Dark Mode</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Match system settings</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between p-4 ripple cursor-pointer border-b border-outline-variant/30">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">palette</span>
+<div>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold">Accent Color</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Calm Blue</p>
+</div>
+</div>
+<div class="flex gap-2">
+<div class="w-6 h-6 rounded-full bg-primary border-2 border-surface-container-lowest shadow-sm ring-2 ring-primary"></div>
+<div class="w-6 h-6 rounded-full bg-secondary border-2 border-surface-container-lowest shadow-sm"></div>
+<div class="w-6 h-6 rounded-full bg-tertiary border-2 border-surface-container-lowest shadow-sm"></div>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 ripple cursor-pointer">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">font_download</span>
+<div>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold">Font Choice</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">System Default</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- Study Preferences Section -->
+<section>
+<h3 class="font-label-caps text-label-caps text-primary uppercase mb-sm px-4">Study Preferences</h3>
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] overflow-hidden">
+<div class="flex items-center justify-between p-4 ripple cursor-pointer border-b border-outline-variant/30">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">timer</span>
+<div>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold">Default Study Duration</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">25 minutes</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+<div class="flex items-center justify-between p-4 ripple cursor-pointer border-b border-outline-variant/30">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">free_cancellation</span>
+<div>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold">Default Break Duration</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">5 minutes</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+<div class="flex flex-col p-4 border-b border-outline-variant/30">
+<div class="flex items-center gap-md mb-2">
+<span class="material-symbols-outlined text-on-surface-variant">flag</span>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold">Daily Goal (Minutes)</p>
+</div>
+<div class="flex items-center gap-4 px-10">
+<span class="font-body-sm text-body-sm text-on-surface-variant">30m</span>
+<input class="w-full h-2 bg-surface-variant rounded-lg appearance-none cursor-pointer accent-primary" max="300" min="30" type="range" value="120"/>
+<span class="font-body-sm text-body-sm text-primary font-bold">120m</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Data Management Section -->
+<section>
+<h3 class="font-label-caps text-label-caps text-primary uppercase mb-sm px-4">Data Management</h3>
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] overflow-hidden">
+<div class="flex items-center justify-between p-4 ripple cursor-pointer border-b border-outline-variant/30">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">download</span>
+<div>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold">Export Local Data</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Save a backup as .json</p>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 ripple cursor-pointer border-b border-outline-variant/30">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">upload</span>
+<div>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold">Import Data</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Restore from backup</p>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 ripple cursor-pointer text-error">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined">delete_forever</span>
+<div>
+<p class="font-body-lg text-body-lg font-semibold">Reset App</p>
+<p class="font-body-sm text-body-sm opacity-80">Erase all local data permanently</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Privacy Notice -->
+<div class="flex items-start gap-sm p-4 bg-surface-container-low rounded-lg mt-xl">
+<span class="material-symbols-outlined text-primary opacity-70 mt-1" data-icon="lock" style="font-size: 20px;">lock</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant opacity-80 leading-relaxed">
+                    All your data is stored locally on this device for your privacy. StudyPlanner does not sync your data to the cloud.
+                </p>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl shadow-[0px_-4px_12px_rgba(0,0,0,0.05)] bg-surface dark:bg-on-surface flex justify-around items-center px-4 py-3 md:hidden">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-sm text-body-sm mt-1">Dashboard</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-body-sm text-body-sm mt-1">Subjects</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-body-sm text-body-sm mt-1">Calendar</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="checklist">checklist</span>
+<span class="font-body-sm text-body-sm mt-1">Tasks</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span>
+<span class="font-body-sm text-body-sm mt-1">More</span>
+</button>
+</nav>
+<!-- Desktop Side Nav Spacer (if implemented later) or just padding adjustments -->
+<div class="hidden md:block fixed left-0 top-16 bottom-0 w-64 bg-surface border-r border-outline-variant/20 p-4 shadow-sm z-30">
+<div class="space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-lg font-semibold">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-body-lg font-semibold">Subjects</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-body-lg font-semibold">Calendar</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="checklist">checklist</span>
+<span class="font-body-lg font-semibold">Tasks</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary-container text-on-primary-container" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-lg font-semibold">Settings</span>
+</a>
+</div>
+</div>
+<!-- Adjust main content padding for desktop sidebar -->
+<style>
+        @media (min-width: 768px) {
+            main {
+                margin-left: 16rem; /* 256px */
+            }
+        }
+    </style>
+</body></html>
